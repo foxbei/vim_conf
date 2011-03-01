@@ -1,6 +1,6 @@
-let $VIMFILES = $HOME.'/.vim'
-let $V = $HOME.'/.vimrc'
-" ======================    ±àÂëÉèÖÃ    ======================{{{
+
+
+" ======================    ç¼–ç è®¾ç½®    ======================{{{
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
@@ -14,7 +14,7 @@ source $VIMRUNTIME/menu.vim
 behave mswin
 " end }}}
 
-"  ===============   ÅäÉ«£¨ Colors£© & ÎÄ×Ö£¨Fonts£©========= {{{
+"  ===============   é…è‰²ï¼ˆ Colorsï¼‰ & æ–‡å­—ï¼ˆFontsï¼‰========= {{{
 set guifont=Terminus\ 13
 set gfw=Terminus:cGB2312\ 11
 au GUIEnter * winpos 0 0
@@ -27,39 +27,23 @@ endfunction
 
 "end }}}
 
-"  ===============   ´ò¿ªÎÄ¼şÊ±£¬×ÜÊÇÌøµ½ÍË³öÖ®Ç°µÄ¹â±ê´¦========= {{{
+"  ===============   æ‰“å¼€æ–‡ä»¶æ—¶ï¼Œæ€»æ˜¯è·³åˆ°é€€å‡ºä¹‹å‰çš„å…‰æ ‡å¤„========= {{{
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \   exe "normal! g`\"" |
 \ endif
 "end }}}
 
-"   ===============   ±êÇ©Ò³ÉèÖÃ   ========= {{{
+"   ===============   æ ‡ç­¾é¡µè®¾ç½®   ========= {{{
 if has("gui_running")
     set showtabline=2
     map! tn tabnew
     nmap <C-c> :tabclose<CR>
 endif
 
-" ±êÇ©Ò³Ö»ÏÔÊ¾ÎÄ¼şÃû
-function ShortTabLabel ()
-    let bufnrlist = tabpagebuflist (v:lnum)
-    let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
-    let filename = fnamemodify (label, ':t')
-    return filename
-endfunction
-set guitablabel=%{ShortTabLabel()}
 " end }}}
 
-set nobackup			" ¸²¸ÇÎÄ¼şÊ±²»±¸·İ
-set number			" ÏÔÊ¾ĞĞºÅ
-setlocal noswapfile		" ²»ÒªÉú³ÉswapÎÄ¼ş
-set nocompatible		" ¹Ø±Õ vi ¼æÈİÄ£Ê½
-filetype plugin on		" ¿ªÆô²å¼ş
-syntax on			" Óï·¨¸ßÁÁ
-set hidden			" ÔÊĞíÔÚÓĞÎ´±£´æµÄĞŞ¸ÄÊ±ÇĞ»»»º³åÇø£¬´ËÊ±µÄĞŞ¸ÄÓÉ vim ¸ºÔğ±£´æ
-
-"  ===============  ²å¼şÉèÖÃ  ========= {{{
+"  ===============  æ’ä»¶è®¾ç½®  ========= {{{
 
 " taglist.vim
 let Tlist_Auto_Highlight_Tag = 1
@@ -94,21 +78,23 @@ let g:vimwiki_list = [{'path': '/home/foxbei/Project/Mywiki/vimwiki/',
 	\ 'css_name': '/home/foxbei/Project/Mywiki/vimwiki_template/style.css',
 	\ 'auto_export': 1,
 	\ 'diary_link_count': 5}]
-" 0:²»Òª½«ÍÕ·åÊ½´Ê×é×÷Îª Wiki ´ÊÌõ; 1:½«ÍÕ·åÊ½´Ê×é×÷Îª Wiki ´ÊÌõ
+" 0:ä¸è¦å°†é©¼å³°å¼è¯ç»„ä½œä¸º Wiki è¯æ¡; 1:å°†é©¼å³°å¼è¯ç»„ä½œä¸º Wiki è¯æ¡
 let g:vimwiki_camel_case = 0
-" ÓÃ GUI ²Ëµ¥À´Ñ¡Ôñ¿ÉÓÃµÄ wiki, È±Ê¡Öµ: 'Vimwiki'
+" ç”¨ GUI èœå•æ¥é€‰æ‹©å¯ç”¨çš„ wiki, ç¼ºçœå€¼: 'Vimwiki'
 let g:vimwiki_menu = 'Plugin.Vimwiki'
-" 0:ÔÚ¶àĞĞÁĞ±íÏîÀï½«»»ĞĞ·û×ªÎª <BR />,ÕâÊÇÓë HTML Ïà¹ØµÄÑ¡Ïî
+" 0:åœ¨å¤šè¡Œåˆ—è¡¨é¡¹é‡Œå°†æ¢è¡Œç¬¦è½¬ä¸º <BR />,è¿™æ˜¯ä¸ HTML ç›¸å…³çš„é€‰é¡¹
 let g:vimwiki_list_ignore_newline =  0
-" ¿ÉÒÔÔÚ vimwiki ÀïÊ¹ÓÃµÄ html ±êÇ©ÁĞ±í£¬ÒÔ¶ººÅ·Ö¸ô
+" å¯ä»¥åœ¨ vimwiki é‡Œä½¿ç”¨çš„ html æ ‡ç­¾åˆ—è¡¨ï¼Œä»¥é€—å·åˆ†éš”
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 "au BufNewFile,BufRead *.wiki exe 'AcpLock' | setlocal fenc=utf-8
 
 " plugin end }}}
 
-" ====================  ¿ì¼ü¼üÓ³Éä  ========================={{{
+" ====================  å¿«é”®é”®æ˜ å°„  ========================={{{
 "vimwiki
 map <S-F4> :VimwikiAll2HTML<cr>
+imap <S-F4> <ESC>:VimwikiAll2HTML<CR>
+
 map <F4> :Vimwiki2HTML<cr>
 imap <F4> <ESC>:Vimwiki2HTML<CR>
 
@@ -118,15 +104,38 @@ imap <F9> <ESC>:NERDTreeToggle<CR>
 map <F10> :TlistToggle<cr>
 imap <F10> <ESC>:NERDTreeToggle<CR>
 
-map <silent> <C-F11> :call ToggleMenu()<cr>
-map <F11> :call ToggleFullScreen()<cr>
+"å¿«é€Ÿè½½å…¥ .vimrc
+map <silent> <leader>ss :source ~/.vimrc<cr>
+"å¿«é€Ÿç¼–è¾‘ .vimrc
+map <silent> <leader>ee :e ~/.vimrc<cr>
 
 "end}}}
 
-" ÖØÆôºó³·ÏúÀúÊ·¿ÉÓÃ persistent undo 
+" é‡å¯åæ’¤é”€å†å²å¯ç”¨ persistent undo 
 if has('persistent_undo')
     set undofile
-    set undodir=$VIMFILES/\_undodir "ÒªĞÂ½¨Ò»¸ö¡°_undodir¡±µÄÎÄ¼ş¼Ğ
+    set undodir=$VIMFILES/\_undodir "è¦æ–°å»ºä¸€ä¸ªâ€œ_undodirâ€çš„æ–‡ä»¶å¤¹
     set undolevels=1000
 endif
 
+
+" ======================    å…¨å±€è®¾ç½® =================={{{
+" è®¾ç½®leaderä¸º,
+let mapleader=","
+let g:mapleader=","
+let $VIMFILES = $HOME.'/.vim'
+let $V = $HOME.'/.vimrc'
+set nocompatible		" å…³é—­ vi å…¼å®¹æ¨¡å¼
+set number			" æ˜¾ç¤ºè¡Œå·
+filetype plugin indent on	" å¼€å¯æ’ä»¶
+syntax on			" è¯­æ³•é«˜äº®
+syntax enable
+set hidden			" å…è®¸åœ¨æœ‰æœªä¿å­˜çš„ä¿®æ”¹æ—¶åˆ‡æ¢ç¼“å†²åŒºï¼Œæ­¤æ—¶çš„ä¿®æ”¹ç”± vim è´Ÿè´£ä¿å­˜
+set autochdir			" è‡ªåŠ¨åˆ‡æ¢å½“å‰ç›®å½•ä¸ºå½“å‰æ–‡ä»¶æ‰€åœ¨çš„ç›®å½•
+set wrap                  	" è‡ªåŠ¨æ¢è¡Œ
+set history=400
+set nobackup			" è¦†ç›–æ–‡ä»¶æ—¶ä¸å¤‡ä»½
+setlocal noswapfile		" ä¸è¦ç”Ÿæˆswapæ–‡ä»¶
+
+"set insertmode			" é»˜è®¤ä¸ºæ’å…¥æ¨¡å¼
+"end}}}
