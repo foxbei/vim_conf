@@ -107,7 +107,7 @@ let g:vimwiki_list = [{'path': '/home/foxbei/Project/Mywiki/vimwiki/',
 	\ 'path_html': '/home/foxbei/Project/Mywiki/vimwiki_html/',
 	\ 'html_header': '/home/foxbei/Project/Mywiki/vimwiki_template/header.tpl',
 	\ 'html_footer': '/home/foxbei/Project/Mywiki/vimwiki_template/footer.tpl',
-	\ 'css_name': '/home/foxbei/Project/Mywiki/vimwiki_template/style.css',
+	\ 'css_name': 'css/style.css',
 	\ 'auto_export': 1,
 	\ 'diary_link_count': 5}]
 " 0:不要将驼峰式词组作为 Wiki 词条; 1:将驼峰式词组作为 Wiki 词条
@@ -152,8 +152,8 @@ nmap <leader>fh :FufHelp<cr>
 
 " ====================  快键键映射  ========================={{{
 "vimwiki
-map <S-F4> :VimwikiAll2HTML<cr>
-imap <S-F4> <ESC>:VimwikiAll2HTML<CR>
+map <S-F4> :VimwikiAll2HTML<cr><cr>
+imap <S-F4> <ESC>:VimwikiAll2HTML<CR><CR>
 
 map <F4> :Vimwiki2HTML<cr>
 imap <F4> <ESC>:Vimwiki2HTML<CR>
