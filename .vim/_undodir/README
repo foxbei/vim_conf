@@ -1,0 +1,9 @@
+文件重启后撤销历史可用 persistent undo
+" .vimrc中添加以下代码==={{{
+if has('persistent_undo')
+    set undofile
+    set undodir=$VIMFILES/\_undodir "要新建一个“_undodir”的文件夹
+    set undolevels=1000
+endif
+}}}
+
