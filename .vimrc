@@ -203,7 +203,6 @@ set browsedir=buffer
 
 set foldmethod=marker  "fold based on marker
 set foldmarker={{{,}}}
-
 "set insertmode			" 默认为插入模式
 "end}}}
 
