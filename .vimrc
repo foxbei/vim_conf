@@ -273,7 +273,6 @@ endfunction
 map <leader>f :call Search_Word()<CR>:copen<CR>
 map <leader>ff :call Search_Word_dtree()<CR>:copen<CR>
 
-
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
